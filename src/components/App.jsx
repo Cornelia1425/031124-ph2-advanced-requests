@@ -15,8 +15,12 @@ function App() {
       .then(res => res.json())
       .then(data => setBooksData(data))
   }, [])
-
-
+/* 
+  function onRemove(bookid){
+    const dataafterfilter = booksData.filter(book=> bookid ===book.id? false : true)
+    setBooksData(dataafterfilter)}
+ */
+  
   // RENDER
   return (
     <div className="App">
@@ -25,9 +29,11 @@ function App() {
 
       <main>
 
-        <BooksContainer booksData={booksData} />
+        <BooksContainer booksData={booksData} setBooksData={setBooksData}/> 
 
-        <BookForm />
+        <BookForm booksData={booksData} setBooksData={setBooksData}/>
+
+        
       
       </main>
 
